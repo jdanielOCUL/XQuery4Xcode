@@ -1,0 +1,57 @@
+/**
+    XQuery text macro specifications derived from
+    	Objective C text macro specifications and C text macro specifications which are
+    	Copyright © 2004-2007 Apple Inc. All rights reserved.
+
+*/
+
+(
+    //
+    // XQuery language macros
+    //
+    {
+        Identifier = xquery;
+        Name = "XQuery";
+        IsMenu = YES;
+// Can be set (for all languages) with the XCCodeSenseFormattingOptions user default
+//        DefaultSettings = {
+//            PreExpressionsSpacing = " ";
+//            InExpressionsSpacing = "";
+//            BlockSeparator = " ";
+//            PostBlockSeparator = "\n";
+//        };
+        IncludeContexts = ( "xcode.lang.xquery");
+        ExcludeContexts = ( "xcode.lang.string", "xcode.lang.character", "xcode.lang.comment", "xcode.lang.c.preprocessor" );
+    },
+
+        {
+            Identifier = xquery.try;
+            BasedOn = xquery;
+            IsMenuItem = YES;
+            Name = "Try / Catch Block";
+            TextString = "try$(BlockSeparator)\n\t{\n<#!statements!#>\n}\n$(PostBlockSeparator)catch$(PreExpressionsSpacing)($(InExpressionsSpacing)$exception(InExpressionsSpacing))$(BlockSeparator)\n\t{\n<#handler#>\n}$(PostBlockSeparator)finally$(BlockSeparator)\n\t{\n<#statements#>\n}";
+            CompletionPrefix = "try";
+            IncludeContexts = ( "xcode.lang.xquery.block" );
+        },
+        
+        {
+            Identifier = xquery.catch;
+            BasedOn = xquery;
+            IsMenuItem = YES;
+            Name = "Catch Block";
+            TextString = "catch$(PreExpressionsSpacing)($(InExpressionsSpacing)<#exception#>$(InExpressionsSpacing))$(BlockSeparator)\n{\n<#!handler!#>\n}";
+            CompletionPrefix = "catch";
+            IncludeContexts = ( "xcode.lang.xquery.block" );
+        },
+
+        {
+            Identifier = xquery.finally;
+            BasedOn = xquery;
+            IsMenuItem = YES;
+            Name = "Finally Block";
+            TextString = "finally$(BlockSeparator)\n\t{\n<#!handler!#>\n}";
+            CompletionPrefix = "finally";
+            IncludeContexts = ( "xcode.lang.xquery.block" );
+        },
+
+)

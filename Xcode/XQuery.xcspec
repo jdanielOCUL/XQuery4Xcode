@@ -1,0 +1,15 @@
+/* 
+ * XQuery.xcspec: Xcode file type for XQuery
+ * 
+ */
+
+(
+	{
+		Type = FileType;
+		Identifier = sourcecode.xquery;
+		BasedOn = sourcecode;
+		Name = "XQuery file";
+		Extensions = ( xqy );
+		Language = "xcode.lang.xquery";
+	}
+)
